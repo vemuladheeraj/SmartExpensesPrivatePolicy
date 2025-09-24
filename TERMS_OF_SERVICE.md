@@ -1,3 +1,12 @@
+## Use of System Permissions
+
+SmartExpenses may request the following, strictly for the purposes described:
+
+- Notification Access (Play build): To detect and parse transactional SMS notifications to create expense records. This does not grant access to non-notification message content.
+- Temporary Default SMS Role (one-time import): To import historical transactional SMS, you may choose to set SmartExpenses as your default SMS app temporarily. After import, the app prompts you to switch back to your preferred SMS app. During this period, SmartExpenses accesses SMS solely to derive transaction data.
+
+You may decline or revoke permissions at any time in Android settings. Certain features (e.g., auto-import of transactions) may be limited without the corresponding permission.
+
 # SmartExpenses Terms of Service
 
 **Last Updated: January 2025**

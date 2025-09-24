@@ -1,3 +1,15 @@
+## Update: SMS Permissions and Notification Access
+
+SmartExpenses now supports two compliant ways to parse transactional messages on Android:
+
+- Notification Access (default in Play build): With your consent, the app processes only transactional SMS content shown in notifications to create expenses. We do not access or store personal messages or notification content beyond what is necessary for expense extraction. You may revoke Notification access anytime in system settings.
+
+- One-time SMS History Import (user-initiated): For importing historical transactional messages, Android requires setting SmartExpenses as the default SMS app temporarily. During this period, the app reads SMS solely to extract transactional data for your expense history. After import, the app prompts you to switch your default SMS app back. We do not read non-transactional personal messages for unrelated purposes.
+
+What we collect from messages (transactional only): amount, direction (debit/credit), date/time, merchant/counterparty, channel (UPI/card/bank), and minimal metadata required to create the transaction entry. We do not upload full SMS bodies or personal conversations to any server.
+
+Your choices: You can decline Notification access, skip history import, or revoke these permissions later. The app continues to work with manual input and other features.
+
 # SmartExpenses Privacy Policy
 
 **Last Updated: January 2025**

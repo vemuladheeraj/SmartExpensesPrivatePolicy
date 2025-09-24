@@ -1,3 +1,11 @@
+## Transactional Message-Derived Data
+
+SmartExpenses stores transaction records locally on your device, derived from transactional SMS (via notification parsing or one-time history import). Stored fields include amount, type (debit/credit), timestamp, inferred merchant/counterparty, and channel (e.g., UPI/card/bank). Raw SMS bodies are not required for normal operation and are not uploaded by default.
+
+Retention controls:
+- You may clear all transactions from Settings (Fresh Start) at any time.
+- If optional cloud backup is enabled in a future release, retention will follow your explicit opt-in settings and will be described here.
+
 # SmartExpenses Data Retention Policy
 
 **Last Updated: January 2025**

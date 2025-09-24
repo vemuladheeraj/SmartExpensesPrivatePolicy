@@ -1,3 +1,12 @@
+## Interaction with SMS/Notification Data
+
+When enabled, SmartExpenses uses AI to enrich transactions derived from:
+
+- Notification-based parsing of transactional SMS (Play build default)
+- One-time SMS history import while temporarily set as the default SMS app
+
+The AI enrichment operates on structured fields extracted from transactional messages (date, amount, channel, merchant/counterparty). Full personal message content is not persisted nor transmitted to third parties for unrelated purposes. You can disable AI features or remove the API key at any time from the app settings.
+
 # SmartExpenses AI Features Disclosure
 
 **Last Updated: January 2025**
