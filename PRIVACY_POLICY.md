@@ -1,15 +1,3 @@
-## Update: SMS Permissions and Notification Access
-
-SmartExpenses now supports two compliant ways to parse transactional messages on Android:
-
-- Notification Access (default in Play build): With your consent, the app processes only transactional SMS content shown in notifications to create expenses. We do not access or store personal messages or notification content beyond what is necessary for expense extraction. You may revoke Notification access anytime in system settings.
-
-- One-time SMS History Import (user-initiated): For importing historical transactional messages, Android requires setting SmartExpenses as the default SMS app temporarily. During this period, the app reads SMS solely to extract transactional data for your expense history. After import, the app prompts you to switch your default SMS app back. We do not read non-transactional personal messages for unrelated purposes.
-
-What we collect from messages (transactional only): amount, direction (debit/credit), date/time, merchant/counterparty, channel (UPI/card/bank), and minimal metadata required to create the transaction entry. We do not upload full SMS bodies or personal conversations to any server.
-
-Your choices: You can decline Notification access, skip history import, or revoke these permissions later. The app continues to work with manual input and other features.
-
 # SmartExpenses Privacy Policy
 
 **Last Updated: January 2025**
@@ -27,19 +15,31 @@ Welcome to SmartExpenses ("we," "our," or "us"). This Privacy Policy explains ho
 - **Transaction Details**: We extract transaction amounts, merchant names, payment channels, and transaction types from SMS messages
 - **Bank Information**: We process bank names, account numbers (partially masked), and transaction references from SMS messages
 - **Message Metadata**: We collect sender information, timestamps, and message content for transaction processing
+- **Spam Detection**: We analyze SMS content to filter out promotional and marketing messages
+- **Transfer Detection**: We identify internal account transfers to prevent duplicate transaction counting
 
-### 2. Financial Data
+### 2. Gmail Data (Optional) ⭐ NEW
+- **Email Messages**: We access and process Gmail emails to extract historical financial transaction information
+- **Email Content**: We process email subject lines, body content, and sender information for transaction extraction
+- **Transaction Details**: We extract transaction amounts, merchant names, payment channels, and transaction types from emails
+- **Email Metadata**: We collect sender information, timestamps, and email content for transaction processing
+- **OAuth 2.0 Authentication**: We use secure OAuth 2.0 to access your Gmail account with your explicit consent
+
+### 3. Financial Data
 - **Transaction Records**: We store processed transaction data including amounts, dates, categories, and merchant information
 - **Spending Patterns**: We analyze your spending behavior to provide insights and recommendations
 - **Budget Information**: We store budget limits and spending categories you configure
 - **Financial Goals**: We store any financial goals or targets you set within the app
 
-### 3. Device Information
+### 4. Device Information
 - **Device Identifiers**: We collect device-specific information for app functionality
 - **App Usage Data**: We collect information about how you use the app to improve our services
 - **Performance Data**: We collect crash reports and performance metrics to improve app stability
+- **Biometric Data**: We use biometric authentication (fingerprint/face) for app security (stored locally)
+- **Notification Preferences**: We store your notification settings and preferences locally
+- **Contact Information**: We access your device contacts to display actual names instead of phone numbers/UPI IDs in transaction records (optional feature)
 
-### 4. AI Service Data (Optional)
+### 5. AI Service Data (Optional)
 - **API Keys**: We securely store your Google AI Studio API key locally on your device if you choose to enable AI features
 - **Transaction Analysis**: We may send anonymized transaction data to Google AI Studio for analysis (only if you opt-in and configure)
 - **Chat Messages**: We store your conversations with the AI financial coach locally on your device
@@ -48,17 +48,26 @@ Welcome to SmartExpenses ("we," "our," or "us"). This Privacy Policy explains ho
 ## How We Use Your Information
 
 ### 1. Core App Functionality
-- **Transaction Processing**: We use SMS data to automatically categorize and track your financial transactions
+- **Transaction Processing**: We use SMS and Gmail data to automatically categorize and track your financial transactions
 - **Financial Insights**: We analyze your spending patterns to provide personalized financial insights
 - **Budget Management**: We use your financial data to help you manage budgets and track spending
-- **Notifications**: We send you notifications about important financial events and insights
+- **Smart Notifications**: We send you intelligent notifications about budget breaches, spending patterns, and financial milestones
+- **Spam Filtering**: We filter out promotional and marketing messages to ensure accurate transaction processing
+- **Transfer Detection**: We identify internal account transfers to prevent duplicate transaction counting
+- **Contact Name Resolution**: We use your device contacts to display actual names instead of phone numbers/UPI IDs in transaction records for better readability
 
-### 2. AI Features (Optional)
+### 2. Gmail Integration (Optional) ⭐ NEW
+- **Historical Transaction Import**: We use Gmail access to import past transaction emails for comprehensive financial tracking
+- **Email Processing**: We process email content to extract transaction information using advanced parsing techniques
+- **Deduplication**: We prevent duplicate transactions by comparing email and SMS data
+- **Categorization**: We use AI to automatically categorize transactions from emails
+
+### 3. AI Features (Optional)
 - **Financial Coaching**: We use AI to provide personalized financial advice and recommendations
 - **Spending Analysis**: We use AI to analyze your spending patterns and identify opportunities for improvement
 - **Predictive Insights**: We use AI to predict future spending and provide financial forecasting
 
-### 3. App Improvement
+### 4. App Improvement
 - **Performance Optimization**: We use usage data to improve app performance and user experience
 - **Feature Development**: We analyze user behavior to develop new features and improvements
 - **Bug Fixes**: We use crash reports and error logs to identify and fix issues
@@ -72,10 +81,14 @@ Welcome to SmartExpenses ("we," "our," or "us"). This Privacy Policy explains ho
 - **No Cloud Storage**: We do not store your financial data on external servers
 
 ### 2. Security Measures
-- **Biometric Authentication**: We support fingerprint and face recognition for app access
-- **App Lock**: We provide configurable app lock features for additional security
-- **Data Encryption**: All sensitive data is encrypted using military-grade encryption standards
+- **Biometric Authentication**: We support fingerprint and face recognition for app access with local storage
+- **App Lock**: We provide configurable app lock features with timeout settings for additional security
+- **Data Encryption**: All sensitive data is encrypted using AES-256-GCM military-grade encryption standards
 - **Secure Key Management**: We use Android Keystore for secure key generation and storage
+- **OAuth 2.0 Security**: Gmail access uses secure OAuth 2.0 authentication with your explicit consent
+- **Encrypted Shared Preferences**: We use EncryptedSharedPreferences for storing sensitive configuration data
+- **Local Processing**: All data processing occurs locally on your device without external transmission
+- **Contact Data Privacy**: Contact information is only used for name resolution and is not stored or transmitted externally
 
 ### 3. Data Retention
 - **Local Retention**: Your data is retained on your device until you delete it or uninstall the app
@@ -89,13 +102,20 @@ Welcome to SmartExpenses ("we," "our," or "us"). This Privacy Policy explains ho
 - **No Advertising**: We do not share your data with advertising networks
 - **No Analytics**: We do not share your data with analytics services
 
-### 2. AI Service Integration (Optional)
+### 2. Gmail Integration (Optional) ⭐ NEW
+- **Google OAuth 2.0**: Gmail access is secured through Google's OAuth 2.0 authentication system
+- **Read-Only Access**: We only request read-only access to your Gmail account
+- **Local Processing**: All email processing occurs locally on your device
+- **No Email Storage**: We do not store your email content on external servers
+- **User Control**: You can revoke Gmail access at any time through your Google account settings
+
+### 3. AI Service Integration (Optional)
 - **Google AI Studio**: If you enable AI features, we may send anonymized transaction data to Google AI Studio for analysis
 - **Data Anonymization**: Personal identifiers, account numbers, and sensitive details are removed before transmission
 - **User Consent**: AI data sharing only occurs with your explicit consent and configuration
 - **Third-Party Policies**: Google AI Studio's privacy policy applies to data sent to their services
 
-### 3. Legal Requirements
+### 4. Legal Requirements
 - **Law Enforcement**: We may disclose your information if required by law or legal process
 - **Safety**: We may disclose information to protect the safety of users or the public
 - **Legal Rights**: We may disclose information to protect our legal rights or property
@@ -108,14 +128,20 @@ Welcome to SmartExpenses ("we," "our," or "us"). This Privacy Policy explains ho
 - **Data Portability**: You can transfer your data to other applications
 
 ### 2. Data Control
-- **Delete Data**: You can delete individual transactions or all data
-- **Modify Data**: You can edit and correct your transaction data
-- **Disable Features**: You can disable SMS processing or AI features at any time
+- **Delete Data**: You can delete individual transactions or all data with complete control
+- **Modify Data**: You can edit and correct your transaction data at any time
+- **Disable Features**: You can disable SMS processing, Gmail integration, or AI features at any time
+- **Export Data**: You can export all your data in CSV or PDF format for backup or migration
+- **Clear Cache**: You can clear AI cache and temporary data to free up storage space
 
 ### 3. Privacy Settings
 - **SMS Permissions**: You can revoke SMS permissions to stop automatic processing
+- **Gmail Access**: You can revoke Gmail access through your Google account settings
 - **AI Features**: You can disable AI features to prevent data sharing
-- **Notifications**: You can control notification preferences
+- **Notifications**: You can control notification preferences and alert types
+- **Biometric Authentication**: You can enable or disable biometric authentication for app access
+- **App Lock**: You can configure app lock settings and timeout preferences
+- **Contact Access**: You can revoke contact permissions to disable name resolution (app will show phone numbers/UPI IDs instead)
 
 ## SMS Processing Details
 
@@ -132,10 +158,58 @@ Welcome to SmartExpenses ("we," "our," or "us"). This Privacy Policy explains ho
 - **Selective Processing**: We only process SMS messages that appear to contain financial transactions
 
 ### 3. What We Extract
-- **Transaction Amounts**: We extract monetary amounts from SMS messages
-- **Merchant Names**: We identify merchant names and payment recipients
-- **Transaction Types**: We classify transactions as debit, credit, or transfer
-- **Payment Channels**: We identify UPI, card, NEFT, IMPS, and other payment methods
+- **Transaction Amounts**: We extract monetary amounts from SMS messages with context-aware validation
+- **Merchant Names**: We identify merchant names and payment recipients using AI-powered categorization
+- **Transaction Types**: We classify transactions as debit, credit, or transfer with enhanced accuracy
+- **Payment Channels**: We identify UPI, card, NEFT, IMPS, RTGS, POS, ATM, and other payment methods
+- **Spam Detection**: We filter out promotional messages, balance alerts, and marketing content
+- **Transfer Detection**: We identify internal account transfers to prevent duplicate counting
+
+## Gmail Processing Details ⭐ NEW
+
+### 1. What We Process
+- **Transaction Emails**: We process emails from banks and financial institutions
+- **Payment Confirmations**: We process UPI, card, and other payment confirmation emails
+- **Transaction Alerts**: We process debit, credit, and transfer notification emails
+- **Account Statements**: We process periodic account statement emails
+
+### 2. How We Process
+- **OAuth 2.0 Authentication**: Secure authentication with your Google account
+- **Email Parsing**: Advanced parsing techniques to extract transaction information
+- **Local Processing**: All email processing occurs locally on your device
+- **No Email Storage**: We do not store your email content on external servers
+
+### 3. What We Extract
+- **Transaction Amounts**: We extract monetary amounts from email content with advanced parsing
+- **Merchant Names**: We identify merchant names and payment recipients using AI categorization
+- **Transaction Types**: We classify transactions as debit, credit, or transfer with smart detection
+- **Payment Channels**: We identify UPI, card, NEFT, IMPS, RTGS, POS, ATM, and other payment methods
+- **Email Deduplication**: We prevent duplicate transactions by comparing with SMS data
+- **Smart Filtering**: We filter out promotional emails and non-transactional content
+
+## Contact Access Details
+
+### 1. Why We Access Contacts
+- **Name Resolution**: We access your device contacts to display actual names instead of phone numbers or UPI IDs in transaction records
+- **Better User Experience**: Instead of seeing "9885747289" or "john@paytm", you'll see "John Smith" if that person is in your contacts
+- **Optional Feature**: Contact access is completely optional - the app works perfectly without it
+
+### 2. What We Access
+- **Contact Names**: We read the display names from your contacts
+- **Phone Numbers**: We read phone numbers to match with transaction data
+- **No Other Data**: We do not access email addresses, addresses, or any other contact information
+
+### 3. How We Use Contact Data
+- **Local Matching**: We match phone numbers/UPI IDs from transactions with your contact list locally on your device
+- **No Storage**: We do not store your contact information in our database
+- **No Transmission**: Contact data is never sent to external servers
+- **Real-time Resolution**: Contact names are resolved in real-time when displaying transactions
+
+### 4. Privacy Protection
+- **Read-Only Access**: We only read contact information, never modify it
+- **Local Processing**: All contact matching happens locally on your device
+- **No Data Retention**: Contact information is not stored in our app's database
+- **User Control**: You can revoke contact access at any time through app settings
 
 ## AI Features and Data Processing
 
@@ -146,10 +220,12 @@ Welcome to SmartExpenses ("we," "our," or "us"). This Privacy Policy explains ho
 - **User Control**: You can disable AI features at any time
 
 ### 2. AI Insights
-- **Personalized Analysis**: AI provides insights based on your spending patterns
-- **Predictive Analytics**: AI predicts future spending and financial trends
-- **Smart Categorization**: AI helps categorize transactions automatically
-- **Financial Health Scoring**: AI provides overall financial health assessments
+- **Personalized Analysis**: AI provides insights based on your spending patterns and financial behavior
+- **Predictive Analytics**: AI predicts future spending and financial trends with advanced algorithms
+- **Smart Categorization**: AI helps categorize transactions automatically with merchant recognition
+- **Financial Health Scoring**: AI provides comprehensive financial health assessments and recommendations
+- **Spending Pattern Recognition**: AI identifies unusual spending patterns and provides alerts
+- **Budget Recommendations**: AI suggests optimal budget allocations based on your spending history
 
 ### 3. Data Privacy in AI
 - **Anonymization**: Personal identifiers are removed before sending data to AI services
@@ -163,7 +239,7 @@ Our app is not intended for children under 13 years of age. We do not knowingly 
 
 ## International Users
 
-SmartExpenses processes all data locally on your device. No personal financial data is transferred to external servers. If you enable optional AI features, anonymized data may be sent to Google AI Studio, which operates globally. Please review Google's privacy policy for information about their data processing practices.
+SmartExpenses processes all data locally on your device. No personal financial data is transferred to external servers. If you enable optional AI features, anonymized data may be sent to Google AI Studio, which operates globally. If you enable Gmail integration, your email access is managed through Google's OAuth 2.0 system. Please review Google's privacy policy for information about their data processing practices.
 
 ## Changes to This Privacy Policy
 
@@ -206,8 +282,13 @@ By using our app, you consent to the collection and use of information in accord
 
 ✅ **100% Local Processing**: All financial data stays on your device  
 ✅ **No Data Collection**: We don't collect personal information  
-✅ **Encrypted Storage**: Military-grade encryption protects your data  
+✅ **AES-256-GCM Encryption**: Military-grade encryption protects your data  
 ✅ **User Control**: You control all data and can delete it anytime  
-✅ **Optional AI**: AI features are completely optional and require your consent  
+✅ **Optional Features**: Gmail integration and AI features are completely optional  
 ✅ **No Tracking**: We don't track your usage or behavior  
-✅ **Open Source**: Core functionality is transparent and auditable
+✅ **Open Source**: Core functionality is transparent and auditable  
+✅ **Secure Gmail Access**: OAuth 2.0 authentication with your explicit consent  
+✅ **No Email Storage**: We don't store your email content on external servers  
+✅ **Smart Spam Filtering**: Advanced filtering prevents promotional message processing  
+✅ **Biometric Security**: Fingerprint and face unlock for enhanced security  
+✅ **Smart Notifications**: Intelligent alerts without compromising privacy
