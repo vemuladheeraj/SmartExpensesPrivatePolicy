@@ -2,6 +2,8 @@
 
 **Last Updated: January 2025**
 
+**Version: 2.1.0**
+
 ## Agreement to Terms
 
 Welcome to SmartExpenses ("we," "our," or "us"). These Terms of Service ("Terms") govern your use of our mobile application SmartExpenses (the "App"). By downloading, installing, or using our App, you agree to be bound by these Terms.
@@ -11,13 +13,17 @@ Welcome to SmartExpenses ("we," "our," or "us"). These Terms of Service ("Terms"
 ## 1. Description of Service
 
 SmartExpenses is a personal finance tracking application that:
-- Automatically processes SMS messages from banks and financial institutions with advanced spam filtering
-- **NEW**: Imports historical transaction data from Gmail emails with your consent
+- Imports historical transaction data from Gmail emails with your consent (one-time import)
+- Imports transaction data from bank statement files (Excel/CSV) with advanced parsing (one-time import)
+- Captures new SMS transactions automatically via notification listener service (ongoing)
 - Provides financial insights, budgeting tools, and expense tracking with AI-powered categorization
 - Offers optional AI-powered financial coaching and analysis with Google AI Studio integration
 - Stores all data locally on your device for privacy and security with AES-256-GCM encryption
 - Provides smart notifications for budget alerts and financial milestones
 - Supports biometric authentication and app lock for enhanced security
+- **NEW**: Adaptive icon system for modern Android devices
+- **NEW**: Enhanced Play Store compliance and data safety features
+- **NEW**: Contact name resolution for better transaction display
 
 ## 2. Eligibility
 
@@ -205,7 +211,26 @@ If any provision of these Terms is found to be unenforceable or invalid, the rem
 
 These Terms, together with our Privacy Policy, constitute the entire agreement between you and us regarding the use of the App. They supersede all prior agreements and understandings.
 
-## 15. Contact Information
+## 15. Google Play Store Compliance
+
+### 15.1 Data Safety
+- **No Data Collection**: We do not collect personal data from users
+- **Local Processing**: All data processing occurs locally on your device
+- **User Control**: You have complete control over your data and can delete it at any time
+- **Transparent Permissions**: All permissions are clearly explained and optional
+
+### 15.2 App Store Policies
+- **Content Rating**: The App is rated for users 13 and above
+- **No Inappropriate Content**: The App does not contain inappropriate or harmful content
+- **No Malicious Behavior**: The App does not engage in malicious or deceptive practices
+- **Privacy Compliance**: The App complies with all applicable privacy laws and regulations
+
+### 15.3 Third-Party Services
+- **Google AI Studio**: Optional AI features require your explicit consent and API key
+- **Gmail API**: Optional Gmail import requires your explicit consent through OAuth 2.0
+- **No Advertising**: We do not use advertising services or track users for advertising purposes
+
+## 16. Contact Information
 
 If you have any questions about these Terms, please contact us at:
 

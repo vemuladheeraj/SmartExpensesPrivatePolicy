@@ -3,13 +3,20 @@
 When enabled, SmartExpenses uses AI to enrich transactions derived from:
 
 - Notification-based parsing of transactional SMS (Play build default)
-- One-time SMS history import while temporarily set as the default SMS app
+- One-time SMS history import after you grant the READ_SMS runtime permission
 
 The AI enrichment operates on structured fields extracted from transactional messages (date, amount, channel, merchant/counterparty). Full personal message content is not persisted nor transmitted to third parties for unrelated purposes. You can disable AI features or remove the API key at any time from the app settings.
+
+### Latest Update
+
+- AI enrichment is optional and only runs if a user provides an API key.
+- Notification-based parsing continues to work if the user declines the SMS history import.
 
 # SmartExpenses AI Features Disclosure
 
 **Last Updated: January 2025**
+
+**Version: 2.1.0**
 
 ## Overview
 
@@ -23,9 +30,10 @@ SmartExpenses includes optional AI-powered features that enhance your financial 
 
 1. **AI Financial Coach**: Interactive chat-based financial advisor
 2. **AI Insights**: Personalized spending analysis and recommendations
-3. **Smart Categorization**: Automatic transaction categorization
-4. **Predictive Analytics**: Future spending predictions and trends
-5. **Financial Health Scoring**: Overall financial wellness assessment
+3. **AI Transaction Categorization**: Automatic categorization of transactions
+4. **AI Spending Analysis**: Advanced pattern recognition and insights
+5. **Predictive Analytics**: Future spending predictions and trends
+6. **Financial Health Scoring**: Overall financial wellness assessment
 
 ## AI Service Provider
 
@@ -261,6 +269,26 @@ SmartExpenses includes optional AI-powered features that enhance your financial 
 - **User Experience**: Processing to improve user experience
 - **App Functionality**: Processing necessary for app functionality
 - **Balanced Approach**: Balance user privacy with service benefits
+
+## Google Play Store Compliance
+
+### 1. Data Safety Declaration
+- **Optional AI Features**: All AI features are completely optional and require user consent
+- **No Data Collection**: We do not collect personal data for AI features without explicit consent
+- **Local Processing**: AI features process data locally when possible
+- **User Control**: Users can disable AI features or remove API keys at any time
+
+### 2. Third-Party Services
+- **Google AI Studio**: Optional AI features use Google AI Studio with user-provided API keys
+- **OAuth 2.0**: Gmail integration uses secure OAuth 2.0 authentication
+- **No Advertising**: We do not use advertising services or track users for advertising purposes
+- **Transparent Permissions**: All permissions are clearly explained and optional
+
+### 3. Privacy Compliance
+- **GDPR Compliant**: AI features comply with GDPR requirements
+- **CCPA Compliant**: AI features comply with CCPA requirements
+- **COPPA Compliant**: AI features comply with COPPA requirements
+- **Data Minimization**: Only essential data is processed for AI features
 
 ## Contact and Support
 

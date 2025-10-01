@@ -16,17 +16,31 @@
 
 ## 🚀 Overview
 
-SmartExpenses is a cutting-edge Android application that revolutionizes personal finance tracking by automatically extracting transaction data from SMS messages and Gmail emails sent by Indian banks. Built with modern Android technologies and powered by advanced AI, it provides comprehensive financial insights, smart notifications, and personalized coaching while maintaining complete privacy and security.
+SmartExpenses is a cutting-edge Android application that revolutionizes personal finance tracking by automatically extracting transaction data from Gmail emails, bank statement files, and ongoing SMS notifications. Built with modern Android technologies and powered by advanced AI, it provides comprehensive financial insights, smart notifications, and personalized coaching while maintaining complete privacy and security.
 
 ## 🆕 Latest Features (January 2025)
 
-### 📧 **Gmail Transaction Import** ⭐ NEW
-- **Historical Transaction Import**: Import past 6 months of transaction emails from Gmail
+### 📧 **Gmail Transaction Import** ⭐ HISTORICAL
+- **One-time Historical Import**: Import past 6 months of transaction emails from Gmail
 - **Universal Bank Support**: Works with any bank or payment service without hardcoding
 - **OAuth 2.0 Authentication**: Secure Gmail API integration with user consent
 - **Advanced Email Parsing**: Intelligent extraction of transaction details from email content
 - **Smart Deduplication**: Prevents duplicate transactions from multiple sources
 - **AI-Powered Categorization**: Automatic categorization of email transactions
+
+### 📊 **Bank Statement Import** ⭐ ONE-TIME
+- **Excel/CSV Import**: Import transactions from bank statement files
+- **Universal Format Support**: Works with various bank statement formats
+- **Advanced Parsing**: Intelligent extraction of transaction details
+- **Smart Deduplication**: Prevents duplicate transactions from multiple sources
+- **AI-Powered Categorization**: Automatic categorization of imported transactions
+
+### 📱 **Notification API** ⭐ ONGOING
+- **Real-time SMS Capture**: Automatically captures new SMS transactions via notification listener
+- **No SMS Permission**: Uses notification API instead of READ_SMS permission
+- **Instant Processing**: New transactions are captured and processed immediately
+- **Smart Filtering**: Only processes transaction-related SMS notifications
+- **Local Processing**: All processing occurs locally on your device
 
 ### 🛡️ **Enhanced Security & Privacy**
 - **AES-256-GCM Encryption**: Military-grade encryption for all sensitive data

@@ -2,6 +2,8 @@
 
 **Last Updated: January 2025**
 
+**Version: 2.1.0**
+
 ## Introduction
 
 Welcome to SmartExpenses ("we," "our," or "us"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application SmartExpenses (the "App"). Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the application.
@@ -10,28 +12,49 @@ Welcome to SmartExpenses ("we," "our," or "us"). This Privacy Policy explains ho
 
 ## Information We Collect
 
-### 1. SMS Data
-- **SMS Messages**: We access and process SMS messages from your device to automatically extract financial transaction information
-- **Transaction Details**: We extract transaction amounts, merchant names, payment channels, and transaction types from SMS messages
-- **Bank Information**: We process bank names, account numbers (partially masked), and transaction references from SMS messages
-- **Message Metadata**: We collect sender information, timestamps, and message content for transaction processing
-- **Spam Detection**: We analyze SMS content to filter out promotional and marketing messages
+### 1. Transaction Data
+- **Gmail Import**: One-time historical import of past transaction emails from Gmail
+- **Bank Statement Import**: One-time import of transaction data from Excel/CSV files
+- **Notification API**: Ongoing capture of new SMS transactions via notification listener service
+- **Transaction Details**: We extract transaction amounts, merchant names, payment channels, and transaction types
+- **Bank Information**: We process bank names, account numbers (partially masked), and transaction references
+- **Message Metadata**: We collect sender information, timestamps, and content for transaction processing
+- **Spam Detection**: We analyze content to filter out promotional and marketing messages
 - **Transfer Detection**: We identify internal account transfers to prevent duplicate transaction counting
 
-### 2. Gmail Data (Optional) ⭐ NEW
+### 2. Gmail Data (Historical Import)
 - **Email Messages**: We access and process Gmail emails to extract historical financial transaction information
 - **Email Content**: We process email subject lines, body content, and sender information for transaction extraction
 - **Transaction Details**: We extract transaction amounts, merchant names, payment channels, and transaction types from emails
 - **Email Metadata**: We collect sender information, timestamps, and email content for transaction processing
 - **OAuth 2.0 Authentication**: We use secure OAuth 2.0 to access your Gmail account with your explicit consent
+- **Scope Limitation**: We only access emails from financial institutions and payment services, not personal emails
+- **Revocable Access**: You can revoke Gmail access at any time through your Google Account settings
 
-### 3. Financial Data
+### 3. Bank Statement Files (One-time Import)
+- **File Processing**: We process Excel/CSV files from bank statements to extract transaction data
+- **File Content**: We analyze file content to extract transaction amounts, dates, and merchant information
+- **Transaction Details**: We extract transaction amounts, merchant names, payment channels, and transaction types from files
+- **File Metadata**: We collect file information, timestamps, and content for transaction processing
+- **Local Processing**: All file processing occurs locally on your device
+- **No File Storage**: We do not store your bank statement files on external servers
+
+### 4. Notification API Data (Ongoing SMS Capture)
+- **Notification Access**: We use Android's notification listener service to capture SMS transaction notifications
+- **SMS Content**: We process SMS notification content to extract transaction information
+- **Real-time Processing**: New SMS transactions are automatically captured and processed
+- **No SMS Permission**: We do not request or use READ_SMS permission
+- **Notification Content**: We only process notification text content, not full SMS messages
+- **Local Processing**: All processing occurs locally on your device
+- **User Control**: You can disable notification access at any time through Android settings
+
+### 5. Financial Data
 - **Transaction Records**: We store processed transaction data including amounts, dates, categories, and merchant information
 - **Spending Patterns**: We analyze your spending behavior to provide insights and recommendations
 - **Budget Information**: We store budget limits and spending categories you configure
 - **Financial Goals**: We store any financial goals or targets you set within the app
 
-### 4. Device Information
+### 6. Device Information
 - **Device Identifiers**: We collect device-specific information for app functionality
 - **App Usage Data**: We collect information about how you use the app to improve our services
 - **Performance Data**: We collect crash reports and performance metrics to improve app stability
@@ -39,16 +62,18 @@ Welcome to SmartExpenses ("we," "our," or "us"). This Privacy Policy explains ho
 - **Notification Preferences**: We store your notification settings and preferences locally
 - **Contact Information**: We access your device contacts to display actual names instead of phone numbers/UPI IDs in transaction records (optional feature)
 
-### 5. AI Service Data (Optional)
+### 7. AI Service Data (Optional)
 - **API Keys**: We securely store your Google AI Studio API key locally on your device if you choose to enable AI features
 - **Transaction Analysis**: We may send anonymized transaction data to Google AI Studio for analysis (only if you opt-in and configure)
 - **Chat Messages**: We store your conversations with the AI financial coach locally on your device
 - **AI Insights**: We cache AI-generated insights locally to improve performance and reduce API calls
+- **Data Minimization**: Only essential transaction fields (amount, date, category) are sent to AI services, not full email content
+- **User Control**: You can disable AI features or remove your API key at any time from app settings
 
 ## How We Use Your Information
 
 ### 1. Core App Functionality
-- **Transaction Processing**: We use SMS and Gmail data to automatically categorize and track your financial transactions
+- **Transaction Processing**: We use Gmail and bank statement data to automatically categorize and track your financial transactions
 - **Financial Insights**: We analyze your spending patterns to provide personalized financial insights
 - **Budget Management**: We use your financial data to help you manage budgets and track spending
 - **Smart Notifications**: We send you intelligent notifications about budget breaches, spending patterns, and financial milestones
@@ -59,7 +84,7 @@ Welcome to SmartExpenses ("we," "our," or "us"). This Privacy Policy explains ho
 ### 2. Gmail Integration (Optional) ⭐ NEW
 - **Historical Transaction Import**: We use Gmail access to import past transaction emails for comprehensive financial tracking
 - **Email Processing**: We process email content to extract transaction information using advanced parsing techniques
-- **Deduplication**: We prevent duplicate transactions by comparing email and SMS data
+- **Deduplication**: We prevent duplicate transactions by comparing email and bank statement data
 - **Categorization**: We use AI to automatically categorize transactions from emails
 
 ### 3. AI Features (Optional)
@@ -119,6 +144,25 @@ Welcome to SmartExpenses ("we," "our," or "us"). This Privacy Policy explains ho
 - **Law Enforcement**: We may disclose your information if required by law or legal process
 - **Safety**: We may disclose information to protect the safety of users or the public
 - **Legal Rights**: We may disclose information to protect our legal rights or property
+
+## Google Play Store Compliance
+
+### 1. Data Safety Declaration
+- **No Data Collection**: We do not collect personal data from users
+- **Local Processing Only**: All data processing occurs locally on your device
+- **No Data Transmission**: We do not transmit your financial data to external servers
+- **User Control**: You have complete control over your data and can delete it at any time
+
+### 2. Permission Usage
+- **Gmail Permission**: Used only for one-time historical import of bank transaction emails with your explicit consent
+- **Notification Permission**: Used only for capturing new SMS transaction notifications (no SMS permission required)
+- **Contact Permission**: Used only for displaying contact names in transaction records (optional)
+- **Biometric Permission**: Used only for app security and authentication (stored locally)
+
+### 3. Third-Party Services
+- **Google AI Studio**: Optional AI features require your explicit consent and API key
+- **Gmail API**: Optional Gmail import requires your explicit consent through OAuth 2.0
+- **No Advertising**: We do not use advertising services or track users for advertising purposes
 
 ## Your Rights and Choices
 

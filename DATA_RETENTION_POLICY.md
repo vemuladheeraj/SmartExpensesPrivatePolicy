@@ -1,14 +1,20 @@
 ## Transactional Message-Derived Data
 
-SmartExpenses stores transaction records locally on your device, derived from transactional SMS (via notification parsing or one-time history import). Stored fields include amount, type (debit/credit), timestamp, inferred merchant/counterparty, and channel (e.g., UPI/card/bank). Raw SMS bodies are not required for normal operation and are not uploaded by default.
+SmartExpenses stores transaction records locally on your device, derived from transactional SMS notifications and optional Gmail import. Stored fields include amount, type (debit/credit), timestamp, inferred merchant/counterparty, and channel (e.g., UPI/card/bank). Raw SMS or email bodies are not required for normal operation and are not uploaded by default.
 
 Retention controls:
 - You may clear all transactions from Settings (Fresh Start) at any time.
 - If optional cloud backup is enabled in a future release, retention will follow your explicit opt-in settings and will be described here.
 
+### Latest Update
+
+- Historical backfill is supported via optional Gmail import with your OAuth consent. Notification-based parsing continues to capture new transactional messages. There is no READ_SMS usage in the Play build.
+
 # SmartExpenses Data Retention Policy
 
 **Last Updated: January 2025**
+
+**Version: 2.1.0**
 
 ## Overview
 
@@ -30,17 +36,29 @@ This Data Retention Policy explains how SmartExpenses handles your data retentio
 - **Encryption**: AES-256-GCM encryption for security
 - **User Control**: You can delete individual transactions or all data
 
-#### SMS Processing Data
-- **Processing**: SMS messages are processed locally and not stored
+#### Gmail Processing Data
+- **Processing**: Gmail emails are processed locally and not stored
 - **Extraction**: Only transaction details are extracted and stored
-- **Original SMS**: Original SMS content is not retained by the App
-- **Temporary Processing**: SMS content is processed in memory only
+- **Original Emails**: Original email content is not retained by the App
+- **Temporary Processing**: Email content is processed in memory only
+
+#### Bank Statement File Processing Data
+- **Processing**: Bank statement files (Excel/CSV) are processed locally and not stored
+- **Extraction**: Only transaction details are extracted and stored
+- **Original Files**: Original bank statement files are not retained by the App
+- **Temporary Processing**: File content is processed in memory only
 
 #### Budget and Category Data
 - **Retention Period**: Indefinite (until you delete it)
 - **Storage Location**: Local database on your device
 - **User Control**: You can modify or delete budget information
 - **Backup**: Data is included in export functionality
+
+#### Gmail Data (Optional) ⭐ NEW
+- **Email Content**: Not stored; processed locally and discarded
+- **Transaction Data**: Extracted and stored locally until you delete them
+- **Email Metadata**: Not stored; only transaction details are retained
+- **OAuth Access**: Can be revoked at any time through Google Account settings
 
 #### AI Features Data (Optional)
 - **Chat History**: Stored locally on your device
