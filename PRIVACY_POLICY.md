@@ -1,8 +1,8 @@
 # SmartExpenses Privacy Policy
 
-**Last Updated: January 2025**
+**Last Updated: October 2025**
 
-**Version: 2.1.0**
+**Version: 21.1.0**
 
 ## Introduction
 
